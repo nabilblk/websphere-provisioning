@@ -41,9 +41,9 @@ docker commit b91c3e15a9bb nabilblk/base
 
 then go to the example folder and run :
 
-docker build -t 'livetell/was' .
+docker build -t 'nabilblk/was' .
 
-docker run -it 'livetell/was'
+docker run -it 'nabilblk/was'
 
 To get the IP :
 boot2docker ip
