@@ -8,7 +8,7 @@
 
 ## Installation and provisionning :
 
-Put this in the in seperate folder for example:
+Put the materials in seperate folders for example:
 
 	myHost:~ nabil cd /Users/macpro/Projects/trash/puppet/files
 	ls -l
@@ -29,19 +29,19 @@ Unzip all materials using the command :
 
     unzip ...
 
-When all the materials are unziped , we can now build our docker images :
+When all the materials are unziped , we can now build our docker image :
 
     git clone https://github.com/nabilblk/websphere-provisioning.git
     cd websphere-provisionning/docker/base
     docker build -t 'nabilblk/was' .
 
-After this an images will be created , to confirm tape the command :
+After this an image will be created , to confirm this tape the command :
 
     myHost:base nabil$ docker images
     REPOSITORY             TAG                 IMAGE ID            CREATED              VIRTUAL SIZE
     nabilblk/was         latest              f69f3da65d34        11 hours ago        367.7 MB
 
-Now the images is ready , lets create a container :
+Now the image is ready , let's create a container :
 
     docker run -v /Users/macpro/Projects/trash/puppet/files:/download/was -p 9060:9060 -p 9080:9080 -p 9443:9443 -it nabilblk/was
 
@@ -52,7 +52,7 @@ docker run -v %Host_Path%:%Container_Path% -p %Host_Port%:%Container_Port% -it %
 
 Variable  | Description
 ------------- | -------------
-Host_Path  | The foler where all websphere and Websphere installation Manager exit
+Host_Path  | The folder where all Websphere and Websphere installation Manager are located
 Container_Path  | The folder in the container where we will mount the Host_Path
 Host_Port  | The port in the Host Machine that will be linked to the container port
 Container_Port  | the websphere DMGR port
@@ -70,7 +70,7 @@ To start provisionning , there is two scripts for this :
     [root@ace863d4292d home]# ./start.sh
 
 
-Now you can access to websphere console here :
+Youpi , Now you can access to websphere console here :
 http://%CONTAINER_IP%:9060/ibm/console/unsecureLogon.jsp
 
 You can get the container ip by running this command in the HOST :
