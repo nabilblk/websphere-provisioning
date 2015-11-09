@@ -1,0 +1,59 @@
+What we need for this :
+
+* IBM WebSphere Application Server Network Deployment Trial, Full Profile (Part 1 of 3) was.repo.8550.ndtrial_part1.zip (1.1G)
+* IBM WebSphere Application Server Network Deployment Trial, Full Profile (Part 2 of 3) was.repo.8550.ndtrial_part2.zip (1.1G)
+* IBM WebSphere Application Server Network Deployment Trial, Full Profile (Part 3 of 3) was.repo.8550.ndtrial_part3.zip (903M)
+
+
+Put this in the 
+
+
+Go to the base folder and execute :
+
+docker build -t 'livetell/tempo' .
+
+docker run -v /Users/macpro/Projects/trash/puppet/files:/download/was -p 9060:9060 -it livetell/tempo
+
+./install.sh
+./configure.sh
+
+
+docker ps -a
+
+==>
+cd /home
+
+Provision a websphere using puppet :
+./install.sh
+
+When all is ok
+
+exit the docker container with Exit command
+
+and then :
+docker ps -a to obtain the container id :
+CONTAINER ID        IMAGE                   COMMAND             CREATED             STATUS                      PORTS               NAMES
+b91c3e15a9bb        livetell/tempo:latest   "/bin/bash"         5 minutes ago       Exited (0) 7 seconds ago                        sharp_heisenberg
+5
+
+The container id is : b91c3e15a9bb
+docker commit b91c3e15a9bb livetell/base
+
+then go to the example folder and run :
+
+docker build -t 'livetell/was' .
+
+docker run -it 'livetell/was'
+
+To get the IP :
+boot2docker ip
+or docker inspect %%%
+
+* access to http://192.168.59.103:9060/ibm/console/unsecureLogon.jsp
+
+
+-----
+'/opt/IBM/WebSphere/AppServer/bin/manageprofiles.sh -create -profileName PROFILE_APP_006 -profilePath /opt/IBM/WebSphere/AppServer/profiles/PROFILE_APP_006 -templatePath /opt/IBM/WebSphere/AppServer/profileTemplates/managed -nodeName appNode01 -hostName 20d4f884f9dc -federateLater false -cellName standalone && test -d /opt/IBM/WebSphere/AppServer/profiles/PROFILE_APP_006'
+
+Debug: Executing '/opt/IBM/WebSphere/AppServer/bin/manageprofiles.sh -create -profileName PROFILE_APP_016 -profilePath /opt/IBM/WebSphere/AppServer/profiles/PROFILE_APP_016 -templatePath /opt/IBM/WebSphere/AppServer/profileTemplates/managed -nodeName appNode06 -hostName 20d4f884f9dc -federateLater false -cellName standalone && test -d /opt/IBM/WebSphere/AppServer/profiles/PROFILE_APP_016'
+

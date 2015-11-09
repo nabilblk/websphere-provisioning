@@ -1,0 +1,31 @@
+websphere_jdbc_datasource { 'Puppet Test1':
+  ensure                        => 'present',
+  dmgr_profile                  => 'PROFILE_DMGR_01',
+  profile_base                  => '/opt/IBM/WebSphere/AppServer/profiles',
+  scope                         => 'node',
+  cell                          => 'CELL_01',
+  node                          => 'appNode01',
+  server                        => 'AppServer01',
+  jdbc_provider                 => 'Puppet Test',
+  jndi_name                     => 'joshTest1',
+  data_store_helper_class       => 'com.ibm.websphere.rsadapter.Oracle11gDataStoreHelper',
+  container_managed_persistence => true,
+  url                           => 'jdbc:oracle:thin:@//localhost:1521/sample',
+  description                   => 'Created by Puppet, yo',
+}
+
+websphere_jdbc_datasource { 'Puppet Test2':
+  ensure                        => 'present',
+  dmgr_profile                  => 'PROFILE_DMGR_01',
+  profile_base                  => '/opt/IBM/WebSphere/AppServer/profiles',
+  scope                         => 'node',
+  cell                          => 'CELL_01',
+  node                          => 'appNode01',
+  server                        => 'AppServer01',
+  jdbc_provider                 => 'Puppet Test',
+  jndi_name                     => 'joshTest2',
+  data_store_helper_class       => 'com.ibm.websphere.rsadapter.Oracle11gDataStoreHelper',
+  container_managed_persistence => true,
+  url                           => 'jdbc:oracle:thin:@//localhost:1521/sample',
+  description                   => 'Created by Puppet, yo',
+}
