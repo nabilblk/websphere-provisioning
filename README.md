@@ -31,7 +31,7 @@ Unzip all materials using the command :
 
 When all the materials are unziped , we can now build our docker images :
 
-    git clone https://bitbucket.org/livetell/aeva_developer_websphere.git
+    git clone https://github.com/nabilblk/websphere-provisioning.git
     cd websphere-provisionning/docker/base
     docker build -t 'nabilblk/was' .
 
